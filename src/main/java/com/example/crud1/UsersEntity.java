@@ -31,10 +31,16 @@ public class UsersEntity {
     private String mobileNumber;
 
     @Column(name = "age")
-    private int Age;
+    private int age;
 
-    @Column(name = "status")
-    private int status;
+    @Column(name = "status_flag")
+    private int statusFlag;
+
+    @Column(name = "user_name")
+    private String userName;
+
+    @Column(name = "password")
+    private String password;
 
     public Integer getId() {
         return id;
@@ -69,19 +75,35 @@ public class UsersEntity {
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(int age) {
-        Age = age;
+        this.age = age;
     }
 
-    public int getStatus() {
-        return status;
+    public int getStatusFlag() {
+        return statusFlag;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setStatusFlag(int statusFlag) {
+        this.statusFlag = statusFlag;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

@@ -33,4 +33,8 @@ public class UsersService {
         usersRepo.deleteById(id);
     }
 
+    public UsersEntity getUserByUserName(String userName) {
+        return usersRepo.findByUserName(userName).get();
+    }
+
 }
