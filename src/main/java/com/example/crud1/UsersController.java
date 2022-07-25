@@ -40,15 +40,16 @@ public class UsersController {
 
     @CrossOrigin
     @GetMapping("/usersByUserName/{userName}")
-    public UsersEntity getUsersByUserName(@PathVariable("userName") String userName) {
-        return usersService.getUserByUserName(userName);
+    public ResponseEntity<UsersEntity> getUsersByUserName(@PathVariable("userName") String userName) {
+        UsersEntity userByUserName =  usersService.getUserByUserName(userName);
+        return new ResponseEntity<UsersEntity>(userByUserName, HttpStatus.OK);
     }
 
     @CrossOrigin
     @PostMapping("/users")
     public ResponseEntity<UsersEntity> saveUsersDetails(@RequestBody UsersEntity record) {
-        usersService.saveUsersDetails(record);
-        return new ResponseEntity<UsersEntity>(record, HttpStatus.OK);
+        UsersEntity saveUser = usersService.saveUsersDetails(record);
+        return new ResponseEntity<UsersEntity>(saveUser, HttpStatus.OK);
     }
 
     @CrossOrigin
