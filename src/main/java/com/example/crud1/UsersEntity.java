@@ -36,6 +36,12 @@ public class UsersEntity {
     @Column(name = "status_flag")
     private int statusFlag;
 
+    @Column(name = "user_name")
+    private String userName;
+
+    @Column(name = "password")
+    private String password;
+
     public Integer getId() {
         return id;
     }
@@ -83,6 +89,24 @@ public class UsersEntity {
     public void setStatusFlag(int statusFlag) {
         this.statusFlag = statusFlag;
     }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
 
     
 }

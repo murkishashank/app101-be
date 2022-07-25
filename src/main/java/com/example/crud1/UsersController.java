@@ -25,7 +25,8 @@ public class UsersController {
         this.usersService = usersService;
     }
 
-    @GetMapping("/AllUsers")
+    @CrossOrigin
+    @GetMapping("/allUsers")
     public List<UsersEntity> allUsers() {
         return usersService.getAllUsers();
     }
