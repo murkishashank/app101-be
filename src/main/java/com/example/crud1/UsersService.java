@@ -34,7 +34,7 @@ public class UsersService {
     }
 
     public UsersEntity getUserByUserName(String userName) {
-        return usersRepo.findByUserName(userName).get();
+        return usersRepo.findByUserName(userName);
     }
 
 }
