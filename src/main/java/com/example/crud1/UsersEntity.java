@@ -42,6 +42,9 @@ public class UsersEntity {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "designation")
+    private String designation;
+
     public Integer getId() {
         return id;
     }
@@ -106,4 +109,13 @@ public class UsersEntity {
         this.password = password;
     }
 
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    
 }
