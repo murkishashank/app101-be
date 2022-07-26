@@ -1,4 +1,4 @@
-package com.example.crud1;
+package com.example.crud1.users;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.type.TrueFalseType;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -36,7 +38,7 @@ public class UsersEntity {
     @Column(name = "status_flag")
     private int statusFlag;
 
-    @Column(name = "user_name")
+    @Column(name = "user_name", unique = true, nullable = false)
     private String userName;
 
     @Column(name = "password")

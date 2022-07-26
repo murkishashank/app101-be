@@ -1,7 +1,9 @@
-package com.example.crud1;
+package com.example.crud1.users;
 
 import java.util.List;
 import java.util.Optional;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +28,18 @@ public class UsersService {
     }
 
     public UsersEntity saveUsersDetails(UsersEntity users) {
+        UsersEntity user = usersRepo.findByUserName(users.getUserName());
+        // System.out.println("........................" + user.getUserName());
+        if(user != null) {
+            System.out.println("............................User name already exists........................");
+        return user;
+        }
+        else {
         return usersRepo.save(users);
+
+        }
+        // return user;
+
     }
 
     public void delete(int id) {

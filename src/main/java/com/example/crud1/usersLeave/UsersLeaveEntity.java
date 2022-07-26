@@ -30,11 +30,11 @@ public class UsersLeaveEntity {
     @Column(name = "reason")
     private String reason;
 
-    @Column(name = "create_timestamp")
-    private Timestamp createTimestamp;
+    @Column(name = "applied_date")
+    private Timestamp appliedDate;
 
-    @Column(name = "change_timestamp")
-    private Timestamp changeTimestamp;
+    @Column(name = "approved_date")
+    private Timestamp approvedDate;
 
     @Column(name = "approved_flag")
     private String approvedFlag;
@@ -72,20 +72,21 @@ public class UsersLeaveEntity {
         this.reason = reason;
     }
 
-    public Timestamp getCreateTimestamp() {
-        return createTimestamp;
+
+    public Timestamp getAppliedDate() {
+        return appliedDate;
     }
 
-    public void setCreateTimestamp(Timestamp createTimestamp) {
-        this.createTimestamp = createTimestamp;
+    public void setAppliedDate(Timestamp appliedDate) {
+        this.appliedDate = appliedDate;
     }
 
-    public Timestamp getChangeTimestamp() {
-        return changeTimestamp;
+    public Timestamp getApprovedDate() {
+        return approvedDate;
     }
 
-    public void setChangeTimestamp(Timestamp changeTimestamp) {
-        this.changeTimestamp = changeTimestamp;
+    public void setApprovedDate(Timestamp approvedDate) {
+        this.approvedDate = approvedDate;
     }
 
     public String getApprovedFlag() {
