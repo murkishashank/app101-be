@@ -29,11 +29,14 @@ public class UsersLeaveController {
     public List<UsersLeaveEntity> allUsers() {
         return usersLeaveService.getAllUsers();
     }
+
+    @CrossOrigin
     @GetMapping("/userLeave/{userName}")
     public List<UsersLeaveEntity> findByUsername(@PathVariable("userName") String userName) {
         return usersLeaveService.findById(userName);
     }
 
+    @CrossOrigin
     @PostMapping("/leave")
     public ResponseEntity<UsersLeaveEntity> saveLeaveDetails(@RequestBody UsersLeaveEntity record) {
         usersLeaveService.saveUsersDetails(record);
