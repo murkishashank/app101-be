@@ -1,4 +1,4 @@
-package com.example.crud1;
+package com.example.crud1.users;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsersService {
-
+public class UsersServiceImpl implements UsersService{
     @Autowired
     private final UsersRepo usersRepo;
 
-    public UsersService(UsersRepo usersRepo) {
+    public UsersServiceImpl(UsersRepo usersRepo) {
         super();
         this.usersRepo = usersRepo;
     }
@@ -37,4 +36,8 @@ public class UsersService {
         return usersRepo.findByUserName(userName);
     }
 
+    @Override
+    public Optional<UsersEntity> getUserById(Integer userId) {
+        return usersRepo.findById(userId);
+    }
 }
