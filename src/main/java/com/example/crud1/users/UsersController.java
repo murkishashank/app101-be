@@ -1,4 +1,4 @@
-package com.example.crud1;
+package com.example.crud1.users;
 
 import java.util.List;
 import java.util.Optional;
