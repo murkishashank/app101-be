@@ -3,8 +3,7 @@ package com.example.crud1.usersLeave;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.Column;import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,14 +29,20 @@ public class UsersLeaveEntity {
     @Column(name = "reason")
     private String reason;
 
-    @Column(name = "create_timestamp")
-    private Timestamp createTimestamp;
+    @Column(name = "applied_date")
+    private Date appliedDate;
 
-    @Column(name = "change_timestamp")
-    private Timestamp changeTimestamp;
+    @Column(name = "approved_date")
+    private Date approvedDate;
 
     @Column(name = "approved_flag")
     private String approvedFlag;
+
+    @Column(name = "approval_reason")
+    private String approvalReason;
+
+    @Column(name = "disapprove_reason")
+    private String disapprovalReason;
 
     public String getUserName() {
         return userName;
@@ -72,22 +77,6 @@ public class UsersLeaveEntity {
         this.reason = reason;
     }
 
-    public Timestamp getCreateTimestamp() {
-        return createTimestamp;
-    }
-
-    public void setCreateTimestamp(Timestamp createTimestamp) {
-        this.createTimestamp = createTimestamp;
-    }
-
-    public Timestamp getChangeTimestamp() {
-        return changeTimestamp;
-    }
-
-    public void setChangeTimestamp(Timestamp changeTimestamp) {
-        this.changeTimestamp = changeTimestamp;
-    }
-
     public String getApprovedFlag() {
         return approvedFlag;
     }
@@ -104,12 +93,35 @@ public class UsersLeaveEntity {
         this.requestId = requestId;
     }
 
-    
+    public Date getAppliedDate() {
+        return appliedDate;
+    }
 
+    public void setAppliedDate(Date appliedDate) {
+        this.appliedDate = appliedDate;
+    }
 
-    
+    public Date getApprovedDate() {
+        return approvedDate;
+    }
+
+    public void setApprovedDate(Date approvedDate) {
+        this.approvedDate = approvedDate;
+    }
+
+    public String getApprovalReason() {
+        return approvalReason;
+    }
+
+    public void setApprovalReason(String approvalReason) {
+        this.approvalReason = approvalReason;
+    }
+
+    public String getDisapprovalReason() {
+        return disapprovalReason;
+    }
+
+    public void setDisapprovalReason(String disapprovalReason) {
+        this.disapprovalReason = disapprovalReason;
+    }   
 }
-// reason varchar(225) 
-// create_timestamp timestamp 
-// change_timestamp timestamp 
-// approved_flag varchar(1)
