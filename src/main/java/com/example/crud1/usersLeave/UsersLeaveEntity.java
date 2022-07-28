@@ -38,6 +38,9 @@ public class UsersLeaveEntity {
 
     @Column(name = "approved_flag")
     private String approvedFlag;
+    
+    @Column(name="leave_type")
+    private String leaveType;
 
     @Column(name = "remarks")
     private String remarks;
@@ -50,6 +53,13 @@ public class UsersLeaveEntity {
         this.userName = userName;
     }
 
+    public int getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(int requestId) {
+        this.requestId = requestId;
+    }
 
     public Date getFromDate() {
         return fromDate;
@@ -99,12 +109,12 @@ public class UsersLeaveEntity {
         this.approvedFlag = approvedFlag;
     }
 
-    public int getRequestId() {
-        return requestId;
+    public String getLeaveType() {
+        return leaveType;
     }
 
-    public void setRequestId(int requestId) {
-        this.requestId = requestId;
+    public void setLeaveType(String leaveType) {
+        this.leaveType = leaveType;
     }
 
     public String getRemarks() {

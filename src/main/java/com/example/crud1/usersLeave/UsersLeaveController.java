@@ -29,6 +29,8 @@ public class UsersLeaveController {
     public List<UsersLeaveEntity> allUsers() {
         return usersLeaveService.getAllUsers();
     }
+
+    @CrossOrigin
     @GetMapping("/userLeave/{userName}")
     public List<UsersLeaveEntity> findByUsername(@PathVariable("userName") String userName) {
         return usersLeaveService.findById(userName);
