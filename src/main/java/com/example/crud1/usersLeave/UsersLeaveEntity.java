@@ -39,6 +39,9 @@ public class UsersLeaveEntity {
     @Column(name = "approved_flag")
     private String approvedFlag;
 
+    @Column(name = "remarks")
+    private String remarks;
+
     public String getUserName() {
         return userName;
     }
@@ -104,8 +107,13 @@ public class UsersLeaveEntity {
         this.requestId = requestId;
     }
 
-    
+    public String getRemarks() {
+        return remarks;
+    }
 
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
 
     
 }

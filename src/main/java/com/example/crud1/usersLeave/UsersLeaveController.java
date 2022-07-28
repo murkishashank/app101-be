@@ -34,6 +34,7 @@ public class UsersLeaveController {
         return usersLeaveService.findById(userName);
     }
 
+    @CrossOrigin
     @PostMapping("/leave")
     public ResponseEntity<UsersLeaveEntity> saveLeaveDetails(@RequestBody UsersLeaveEntity record) {
         usersLeaveService.saveUsersDetails(record);
