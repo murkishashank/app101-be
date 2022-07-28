@@ -42,6 +42,9 @@ public class UsersLeaveEntity {
     @Column(name="leave_type")
     private String leaveType;
 
+    @Column(name = "remarks")
+    private String remarks;
+
     public String getUserName() {
         return userName;
     }
@@ -113,6 +116,16 @@ public class UsersLeaveEntity {
     public void setLeaveType(String leaveType) {
         this.leaveType = leaveType;
     }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    
 }
 // reason varchar(225) 
 // create_timestamp timestamp 
