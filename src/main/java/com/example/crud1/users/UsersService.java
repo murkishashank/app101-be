@@ -12,7 +12,7 @@ public interface UsersService {
 
     Optional<UsersEntity> getUserById(Integer userId);
 
-    UsersEntity getUserByUserName(String userName);
+    Optional<UsersEntity> getUserByUserName(String userName);
 
     UsersEntity saveUsersDetails(UsersEntity record);
 
