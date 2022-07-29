@@ -39,7 +39,7 @@ public class UsersEntity {
     @Column(name = "status_flag")
     private int statusFlag;
 
-	@JsonInclude(value = Include.NON_NULL)
+    @JsonInclude(value = Include.NON_NULL)
     @Column(name = "user_name")
     private String userName;
 
@@ -121,5 +121,4 @@ public class UsersEntity {
         this.designation = designation;
     }
 
-    
 }
