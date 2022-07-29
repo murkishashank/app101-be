@@ -52,8 +52,8 @@ public class UsersController {
     }
 
     @CrossOrigin
-    @DeleteMapping("/delEmployee/{employeeId}")
-    public void deleteUsers(@PathVariable("employeeId") int employeeId) {
-        usersService.delete(employeeId);
+    @DeleteMapping("/delEmployee/{userId}")
+    public void deleteUsers(@PathVariable("userId") int userId) {
+        usersService.delete(userId);
     }
 }
