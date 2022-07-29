@@ -1,10 +1,13 @@
 package com.example.crud1.users;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -48,6 +51,10 @@ public class UsersEntity {
 
     @Column(name = "designation")
     private String designation;
+
+    @JsonInclude(value = Include.NON_NULL)
+	@OneToMany(mappedBy = "id")
+	private List<UsersEntity> leaves;
 
     public Integer getId() {
         return id;
@@ -119,6 +126,14 @@ public class UsersEntity {
 
     public void setDesignation(String designation) {
         this.designation = designation;
+    }
+
+    public List<UsersEntity> getLeaves() {
+        return leaves;
+    }
+
+    public void setLeaves(List<UsersEntity> leaves) {
+        this.leaves = leaves;
     }
 
     

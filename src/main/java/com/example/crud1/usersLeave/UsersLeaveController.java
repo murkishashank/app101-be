@@ -1,6 +1,7 @@
 package com.example.crud1.usersLeave;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,9 +32,9 @@ public class UsersLeaveController {
     }
 
     @CrossOrigin
-    @GetMapping("/userLeave/{userName}")
-    public List<UsersLeaveEntity> findByUsername(@PathVariable("userName") String userName) {
-        return usersLeaveService.findById(userName);
+    @GetMapping("/userLeave/{id}")
+    public Optional<UsersLeaveEntity> findByUsername(@PathVariable("id") Integer id) {
+        return usersLeaveService.findById(id);
     }
 
     @CrossOrigin

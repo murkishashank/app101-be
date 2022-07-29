@@ -8,6 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsersLeaveRepo extends JpaRepository<UsersLeaveEntity, Integer>{
 
-    List<UsersLeaveEntity> findByUserName(String userName);
-    
 }
