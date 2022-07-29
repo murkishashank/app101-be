@@ -2,19 +2,25 @@ package com.example.crud1.usersLeave;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.example.crud1.users.UsersEntity;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
 @Table(name = "users_leaves")
 public class UsersLeaveEntity {
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "user_id")
+    private int id;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +36,11 @@ public class UsersLeaveEntity {
     @Column(name = "reason")
     private String reason;
 
-    @Column(name = "create_timestamp")
-    private Timestamp createTimestamp;
+    @Column(name = "applied_date")
+    private Date appliedDate;
 
-    @Column(name = "change_timestamp")
-    private Timestamp changeTimestamp;
+    @Column(name = "approved_date")
+    private Date approvedDate;
 
     @Column(name = "approved_flag")
     private String approvedFlag;
@@ -45,12 +51,18 @@ public class UsersLeaveEntity {
     @Column(name = "remarks")
     private String remarks;
 
-    public String getUserName() {
-        return userName;
+    // @OneToMany(user_id)
+    @JsonInclude(value = Include.NON_NULL)
+	@OneToMany(mappedBy = "id")
+	private List<UsersEntity> user;
+
+
+    public int getId() {
+        return id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getRequestId() {
@@ -85,24 +97,24 @@ public class UsersLeaveEntity {
         this.reason = reason;
     }
 
-    public Timestamp getCreateTimestamp() {
-        return createTimestamp;
-    }
-
-    public void setCreateTimestamp(Timestamp createTimestamp) {
-        this.createTimestamp = createTimestamp;
-    }
-
-    public Timestamp getChangeTimestamp() {
-        return changeTimestamp;
-    }
-
-    public void setChangeTimestamp(Timestamp changeTimestamp) {
-        this.changeTimestamp = changeTimestamp;
-    }
-
     public String getApprovedFlag() {
         return approvedFlag;
+    }
+
+    public Date getAppliedDate() {
+        return appliedDate;
+    }
+
+    public void setAppliedDate(Date appliedDate) {
+        this.appliedDate = appliedDate;
+    }
+
+    public Date getApprovedDate() {
+        return approvedDate;
+    }
+
+    public void setApprovedDate(Date approvedDate) {
+        this.approvedDate = approvedDate;
     }
 
     public void setApprovedFlag(String approvedFlag) {
@@ -121,13 +133,18 @@ public class UsersLeaveEntity {
         return remarks;
     }
 
+
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
 
+    public List<UsersEntity> getUser() {
+        return user;
+    }
+
+    public void setUser(List<UsersEntity> user) {
+        this.user = user;
+    }
+
     
 }
-// reason varchar(225) 
-// create_timestamp timestamp 
-// change_timestamp timestamp 
-// approved_flag varchar(1)

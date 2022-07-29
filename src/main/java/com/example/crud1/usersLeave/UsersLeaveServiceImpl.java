@@ -1,6 +1,7 @@
 package com.example.crud1.usersLeave;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,16 +20,13 @@ public class UsersLeaveServiceImpl implements UsersLeaveService {
         return usersLeaveRepo.findAll();
     }
 
-    // public UsersLeaveEntity findById(userName) {
-    //     return usersLeaveRepo.findByUserName();
-    // }
-
-    public List<UsersLeaveEntity> findById(String userName) {
-        return usersLeaveRepo.findByUserName(userName);
-    }
-
     public UsersLeaveEntity saveUsersDetails(UsersLeaveEntity record) {
         return usersLeaveRepo.save(record);
+    }
+
+    @Override
+    public Optional<UsersLeaveEntity> findById(Integer id) {
+        return usersLeaveRepo.findById(id);
     }
     
 }
