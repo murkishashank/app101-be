@@ -1,26 +1,24 @@
 package com.example.crud1.usersLeave;
 
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.example.crud1.users.UsersEntity;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 @Entity
 @Table(name = "users_leaves")
 public class UsersLeaveEntity {
     @Column(name = "user_id")
-    private int id;
+    private int userId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,20 +49,12 @@ public class UsersLeaveEntity {
     @Column(name = "remarks")
     private String remarks;
 
-    // @OneToMany(user_id)
-    @JsonInclude(value = Include.NON_NULL)
-	@OneToMany(mappedBy = "id")
-	private List<UsersEntity> user;
+    @JsonIncludeProperties({"userName"})
+	@OneToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+	private UsersEntity userName;
 
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+   
     public int getRequestId() {
         return requestId;
     }
@@ -138,13 +128,22 @@ public class UsersLeaveEntity {
         this.remarks = remarks;
     }
 
-    public List<UsersEntity> getUser() {
-        return user;
+    public UsersEntity getUserName() {
+        return userName;
     }
 
-    public void setUser(List<UsersEntity> user) {
-        this.user = user;
+    public void setUserName(UsersEntity userName) {
+        this.userName = userName;
     }
 
-    
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+   
+ 
 }
