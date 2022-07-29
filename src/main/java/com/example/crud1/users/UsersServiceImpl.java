@@ -16,28 +16,28 @@ public class UsersServiceImpl implements UsersService{
         this.usersRepo = usersRepo;
     }
 
+    @Override
     public List<UsersEntity> getAllUsers() {
         return usersRepo.findAll();
     }
 
-    public Optional<UsersEntity> getUserById(int id) {
-        return usersRepo.findById(id);
+    @Override
+    public UsersEntity saveUsersDetails(UsersEntity userEntity) {
+        return usersRepo.save(userEntity);
     }
 
-    public UsersEntity saveUsersDetails(UsersEntity users) {
-        return usersRepo.save(users);
-    }
-
-    public void delete(int id) {
-        usersRepo.deleteById(id);
-    }
-
-    public UsersEntity getUserByUserName(String userName) {
+    @Override
+    public Optional<UsersEntity> getUserByUserName(String userName) {
         return usersRepo.findByUserName(userName);
     }
 
     @Override
     public Optional<UsersEntity> getUserById(Integer userId) {
         return usersRepo.findById(userId);
+    }
+
+    @Override
+    public void delete(Integer userId) {
+        usersRepo.deleteById(userId);
     }
 }

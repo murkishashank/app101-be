@@ -25,15 +25,15 @@ public class UsersLeaveController {
     }
 
     @CrossOrigin
-    @GetMapping("/allLeaves/")
+    @GetMapping("/allLeaves")
     public List<UsersLeaveEntity> allUsers() {
         return usersLeaveService.getAllUsers();
     }
 
     @CrossOrigin
-    @GetMapping("/userLeave/{userName}")
-    public List<UsersLeaveEntity> findByUsername(@PathVariable("userName") String userName) {
-        return usersLeaveService.findById(userName);
+    @GetMapping("/userLeave/{id}")
+    public List<UsersLeaveEntity> findByUserId(@PathVariable("id") Integer id) {
+        return usersLeaveService.findByUserId(id);
     }
 
     @CrossOrigin

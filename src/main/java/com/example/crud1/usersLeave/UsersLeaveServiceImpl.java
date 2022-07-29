@@ -19,16 +19,13 @@ public class UsersLeaveServiceImpl implements UsersLeaveService {
         return usersLeaveRepo.findAll();
     }
 
-    // public UsersLeaveEntity findById(userName) {
-    //     return usersLeaveRepo.findByUserName();
-    // }
-
-    public List<UsersLeaveEntity> findById(String userName) {
-        return usersLeaveRepo.findByUserName(userName);
-    }
-
     public UsersLeaveEntity saveUsersDetails(UsersLeaveEntity record) {
         return usersLeaveRepo.save(record);
+    }
+
+    @Override
+    public List<UsersLeaveEntity> findByUserId(Integer id) {
+        return usersLeaveRepo.findByUserId(id);
     }
     
 }

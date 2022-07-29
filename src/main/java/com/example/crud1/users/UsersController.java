@@ -40,11 +40,10 @@ public class UsersController {
 
     @CrossOrigin
     @GetMapping("/usersByUserName/{userName}")
-    public ResponseEntity<UsersEntity> getUsersByUserName(@PathVariable("userName") String userName) {
-        UsersEntity userByUserName = usersService.getUserByUserName(userName);
-        return new ResponseEntity<UsersEntity>(userByUserName, HttpStatus.OK);
+    public Optional<UsersEntity> getUsersByUserName(@PathVariable("userName") String userName) {
+        return usersService.getUserByUserName(userName);
     }
-
+    
     @CrossOrigin
     @PostMapping("/users")
     public ResponseEntity<UsersEntity> saveUsersDetails(@RequestBody UsersEntity record) {
@@ -53,8 +52,8 @@ public class UsersController {
     }
 
     @CrossOrigin
-    @DeleteMapping("/delEmployee/{employeeId}")
-    public void deleteUsers(@PathVariable("employeeId") int employeeId) {
-        usersService.delete(employeeId);
+    @DeleteMapping("/delEmployee/{userId}")
+    public void deleteUsers(@PathVariable("userId") int userId) {
+        usersService.delete(userId);
     }
 }
