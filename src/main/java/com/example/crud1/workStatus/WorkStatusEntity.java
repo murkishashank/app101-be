@@ -21,7 +21,7 @@ public class WorkStatusEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "status_id")
-    public int statusId;
+    public int id;
 
     @Column(name = "user_id")
     public int userId;
@@ -43,14 +43,6 @@ public class WorkStatusEntity {
 
     @Column(name = "completed_timestamp")
     public LocalDateTime completedTimeStamp;
-
-    public int getStatusId() {
-        return statusId;
-    }
-
-    public void setStatusId(int statusId) {
-        this.statusId = statusId;
-    }
 
     public int getUserId() {
         return userId;
@@ -106,6 +98,14 @@ public class WorkStatusEntity {
 
     public void setCompletedTimeStamp(LocalDateTime completedTimeStamp) {
         this.completedTimeStamp = completedTimeStamp;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

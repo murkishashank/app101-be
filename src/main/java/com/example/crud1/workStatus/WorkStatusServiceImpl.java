@@ -30,4 +30,9 @@ public class WorkStatusServiceImpl implements WorkStatusService {
     public List<WorkStatusEntity> findByUserId(Integer id) {
         return workStatusRepo.findByUserId(id);
     }
+
+    @Override
+    public Iterable<WorkStatusEntity> saveAllTasks(Iterable<WorkStatusEntity> workStatusRecord) {
+        return workStatusRepo.saveAll((Iterable<WorkStatusEntity>) workStatusRecord);
+    }
 }
