@@ -10,4 +10,6 @@ public interface WorkStatusService {
 
     List<WorkStatusEntity> findByUserId(Integer id);
 
+    Iterable<WorkStatusEntity> saveAllTasks(Iterable<WorkStatusEntity> workStatusRecord);
+
 }
