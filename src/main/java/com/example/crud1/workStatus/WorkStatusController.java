@@ -40,4 +40,9 @@ public class WorkStatusController {
     public WorkStatusEntity saveTask(@RequestBody WorkStatusEntity workStatusRecord) {
         return workStatusService.saveTask(workStatusRecord);
     }
+    @CrossOrigin
+    @PostMapping("/tasks")
+    public Iterable<WorkStatusEntity> saveTasks(@RequestBody Iterable<WorkStatusEntity> workStatusRecord) {
+        return workStatusService.saveAllTasks(workStatusRecord);
+    }
 }

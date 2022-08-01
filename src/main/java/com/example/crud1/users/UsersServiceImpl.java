@@ -1,5 +1,6 @@
 package com.example.crud1.users;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,5 +40,15 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public void delete(Integer userId) {
         usersRepo.deleteById(userId);
+    }
+
+    @Override
+    public List getAllUsersIds() {
+        List<UsersEntity> allRecords = usersRepo.findAll();
+        List newUserList = new ArrayList<>();
+        allRecords.forEach(gravityScaleDetail -> {
+            newUserList.add( gravityScaleDetail.getId());
+        });
+        return newUserList;
     }
 }

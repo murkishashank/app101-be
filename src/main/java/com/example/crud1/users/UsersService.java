@@ -12,7 +12,10 @@ public interface UsersService {
     Optional<UsersEntity> getUserByUserName(String userName);
 
     UsersEntity saveUsersDetails(UsersEntity userEntity);
-
     void delete(Integer userId);
+
+    List getAllUsersIds();
+
+   
 
 }

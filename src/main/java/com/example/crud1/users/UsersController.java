@@ -56,4 +56,12 @@ public class UsersController {
     public void deleteUsers(@PathVariable("userId") int userId) {
         usersService.delete(userId);
     }
+
+    @CrossOrigin
+    @GetMapping("/allUsersIds")
+    public List getAllUserIds() {
+        List userIds = usersService.getAllUsersIds();
+        return userIds;
+        
+    }
 }
