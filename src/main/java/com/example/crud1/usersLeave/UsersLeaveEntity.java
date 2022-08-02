@@ -23,7 +23,7 @@ public class UsersLeaveEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "request_id")
-    private int requestId;
+    private int id;
 
     @Column(name = "from_date")
     private Date fromDate;
@@ -53,14 +53,6 @@ public class UsersLeaveEntity {
     @OneToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private UsersEntity userName;
-
-    public int getRequestId() {
-        return requestId;
-    }
-
-    public void setRequestId(int requestId) {
-        this.requestId = requestId;
-    }
 
     public Date getFromDate() {
         return fromDate;
@@ -142,4 +134,14 @@ public class UsersLeaveEntity {
         this.userId = userId;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+   
+ 
 }

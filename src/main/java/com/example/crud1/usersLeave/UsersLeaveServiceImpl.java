@@ -1,5 +1,6 @@
 package com.example.crud1.usersLeave;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class UsersLeaveServiceImpl implements UsersLeaveService {
     }
 
     public UsersLeaveEntity saveUsersDetails(UsersLeaveEntity record) {
+        long millis=System.currentTimeMillis(); 
+        record.setApprovedDate(new Date(millis));
         return usersLeaveRepo.save(record);
     }
 
