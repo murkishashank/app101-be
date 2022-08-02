@@ -1,5 +1,7 @@
 package com.example.crud1.usersLeave;
 
+import java.io.Console;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +41,8 @@ public class UsersLeaveController {
     @CrossOrigin
     @PostMapping("/leave")
     public ResponseEntity<UsersLeaveEntity> saveLeaveDetails(@RequestBody UsersLeaveEntity record) {
-        usersLeaveService.saveUsersDetails(record);
-        return new ResponseEntity<UsersLeaveEntity>(record, HttpStatus.OK);
+        UsersLeaveEntity savedRecord = usersLeaveService.saveUsersDetails(record);
+        return new ResponseEntity<UsersLeaveEntity>(savedRecord, HttpStatus.OK);
     }
 
 }
