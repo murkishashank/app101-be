@@ -39,8 +39,8 @@ public class UsersLeaveController {
     @CrossOrigin
     @PostMapping("/leave")
     public ResponseEntity<UsersLeaveEntity> saveLeaveDetails(@RequestBody UsersLeaveEntity record) {
-        usersLeaveService.saveUsersDetails(record);
-        return new ResponseEntity<UsersLeaveEntity>(record, HttpStatus.OK);
+        UsersLeaveEntity savedRecord = usersLeaveService.saveUsersDetails(record);
+        return new ResponseEntity<UsersLeaveEntity>(savedRecord, HttpStatus.OK);
     }
 
 }
