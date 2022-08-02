@@ -1,5 +1,6 @@
 package com.example.crud1.workStatus;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -42,7 +43,7 @@ public class WorkStatusEntity {
     public LocalDateTime assignedTimeStamp;
 
     @Column(name = "completed_timestamp")
-    public LocalDateTime completedTimeStamp;
+    public Date completedTimeStamp;
 
     public int getUserId() {
         return userId;
@@ -92,11 +93,11 @@ public class WorkStatusEntity {
         this.assignedTimeStamp = assignedTimeStamp;
     }
 
-    public LocalDateTime getCompletedTimeStamp() {
+    public Date getCompletedTimeStamp() {
         return completedTimeStamp;
     }
 
-    public void setCompletedTimeStamp(LocalDateTime completedTimeStamp) {
+    public void setCompletedTimeStamp(Date completedTimeStamp) {
         this.completedTimeStamp = completedTimeStamp;
     }
 
