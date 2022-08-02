@@ -42,17 +42,17 @@ public class UsersLeaveEntity {
 
     @Column(name = "approved_flag")
     private String approvedFlag;
-    
-    @Column(name="leave_type")
+
+    @Column(name = "leave_type")
     private String leaveType;
 
     @Column(name = "remarks")
     private String remarks;
 
-    @JsonIncludeProperties({"userName"})
-	@OneToOne
+    @JsonIncludeProperties({ "userName" })
+    @OneToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
-	private UsersEntity userName;
+    private UsersEntity userName;
 
     public Date getFromDate() {
         return fromDate;
@@ -113,7 +113,6 @@ public class UsersLeaveEntity {
     public String getRemarks() {
         return remarks;
     }
-
 
     public void setRemarks(String remarks) {
         this.remarks = remarks;

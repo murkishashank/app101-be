@@ -12,5 +12,5 @@ public interface UsersLeaveService {
     UsersLeaveEntity saveUsersDetails(UsersLeaveEntity record);
 
     List<UsersLeaveEntity> findByUserId(Integer id);
-    
-   }
+
+}

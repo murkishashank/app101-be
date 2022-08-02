@@ -43,7 +43,7 @@ public class UsersController {
     public Optional<UsersEntity> getUsersByUserName(@PathVariable("userName") String userName) {
         return usersService.getUserByUserName(userName);
     }
-    
+
     @CrossOrigin
     @PostMapping("/users")
     public ResponseEntity<UsersEntity> saveUsersDetails(@RequestBody UsersEntity record) {

@@ -30,5 +30,5 @@ public class UsersLeaveServiceImpl implements UsersLeaveService {
     public List<UsersLeaveEntity> findByUserId(Integer id) {
         return usersLeaveRepo.findByUserId(id);
     }
-    
+
 }
