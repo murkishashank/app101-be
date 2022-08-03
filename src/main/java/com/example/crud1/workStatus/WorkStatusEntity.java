@@ -7,12 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.example.crud1.users.UsersEntity;
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -43,28 +38,22 @@ public class WorkStatusEntity {
     @Column(name = "assigned_by")
     public int assignedBy;
 
-    @Column(name = "assigned_timestamp")
-    public LocalDateTime assignedTimeStamp;
+    @Column(name = "assigned_date")
+    public LocalDateTime taskAssignedDate;
 
-    @Column(name = "completed_timestamp")
-    public LocalDateTime completedTimeStamp;
+    @Column(name = "completed_date")
+    public LocalDateTime taskCompletedDate;
 
-    @JsonIncludeProperties({ "userName" })
-    @OneToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private UsersEntity userName;
+    @Column(name = "remarks")
+    public String remarks;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    @Column(name = "accepted_flag")
+    public String acceptedFlag;
 
     public int getUserId() {
         return userId;
     }
+
 
     public void setUserId(int userId) {
         this.userId = userId;
@@ -102,32 +91,28 @@ public class WorkStatusEntity {
         this.assignedBy = assignedBy;
     }
 
-    public LocalDateTime getAssignedTimeStamp() {
-        return assignedTimeStamp;
+    public int getId() {
+        return id;
     }
 
-    public void setAssignedTimeStamp(LocalDateTime assignedTimeStamp) {
-        this.assignedTimeStamp = assignedTimeStamp;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public LocalDateTime getCompletedTimeStamp() {
-        return completedTimeStamp;
+    public String getRemarks() {
+        return remarks;
     }
 
-    public void setCompletedTimeStamp(LocalDateTime completedTimeStamp) {
-        this.completedTimeStamp = completedTimeStamp;
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
-    public UsersEntity getUserName() {
-        return userName;
+    public String getAcceptedFlag() {
+        return acceptedFlag;
     }
 
-    public void setUserName(UsersEntity userName) {
-        this.userName = userName;
+    public void setAcceptedFlag(String acceptedFlag) {
+        this.acceptedFlag = acceptedFlag;
     }
+
 }
-
-// assigned
-// WIP
-// QA
-// Completed
