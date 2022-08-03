@@ -7,7 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.example.crud1.users.UsersEntity;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -43,6 +48,19 @@ public class WorkStatusEntity {
 
     @Column(name = "completed_timestamp")
     public LocalDateTime completedTimeStamp;
+
+    @JsonIncludeProperties({ "userName" })
+    @OneToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private UsersEntity userName;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getUserId() {
         return userId;
@@ -100,14 +118,13 @@ public class WorkStatusEntity {
         this.completedTimeStamp = completedTimeStamp;
     }
 
-    public int getId() {
-        return id;
+    public UsersEntity getUserName() {
+        return userName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserName(UsersEntity userName) {
+        this.userName = userName;
     }
-
 }
 
 // assigned
