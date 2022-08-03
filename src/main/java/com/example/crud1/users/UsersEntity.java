@@ -54,6 +54,24 @@ public class UsersEntity {
     @Column(name = "alt_mbl_num")
     private String alternativeMobileNumber;
 
+    @Column(name = "joining_date")
+    private Date joiningDate;
+
+    @Column(name = "email_id")
+    private String emailId;
+
+    @Column(name = "personal_email_id")
+    private String personalEmailId;
+
+    @Column(name = "permanent_address")
+    private String permanentAddress;
+
+    @Column(name = "contact_address")
+    private String contactAddress;
+
+    @Column(name = "reporting_manager")
+    private String reportingManager;
+
     public Integer getId() {
         return id;
     }
@@ -158,14 +176,6 @@ public class UsersEntity {
         this.personalEmailId = personalEmailId;
     }
 
-    public String getCurrentAddress() {
-        return currentAddress;
-    }
-
-    public void setCurrentAddress(String currentAddress) {
-        this.currentAddress = currentAddress;
-    }
-
     public String getContactAddress() {
         return contactAddress;
     }
@@ -182,22 +192,12 @@ public class UsersEntity {
         this.reportingManager = reportingManager;
     }
 
-    @Column(name = "joining_date")
-    private Date joiningDate;
+    public String getPermanentAddress() {
+        return permanentAddress;
+    }
 
-    @Column(name = "email_id")
-    private String emailId;
-
-    @Column(name = "personal_email_id")
-    private String personalEmailId;
-
-    @Column(name = "permanant_address")
-    private String currentAddress;
-
-    @Column(name = "contact_address")
-    private String contactAddress;
-
-    @Column(name = "reporting_manager")
-    private String reportingManager;
+    public void setPermanentAddress(String permanentAddress) {
+        this.permanentAddress = permanentAddress;
+    }
 
 }
