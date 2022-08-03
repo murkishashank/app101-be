@@ -26,7 +26,7 @@ public class WorkStatusEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "status_id")
-    public int statusId;
+    public int id;
 
     @Column(name = "user_id")
     public int userId;
@@ -54,12 +54,12 @@ public class WorkStatusEntity {
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private UsersEntity userName;
 
-    public int getStatusId() {
-        return statusId;
+    public int getId() {
+        return id;
     }
 
-    public void setStatusId(int statusId) {
-        this.statusId = statusId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getUserId() {
@@ -125,7 +125,6 @@ public class WorkStatusEntity {
     public void setUserName(UsersEntity userName) {
         this.userName = userName;
     }
-
 }
 
 // assigned
