@@ -1,5 +1,7 @@
 package com.example.crud1.users;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,8 +35,8 @@ public class UsersEntity {
     @Column(name = "mbl_num")
     private String mobileNumber;
 
-    @Column(name = "age")
-    private int age;
+    @Column(name = "date_of_birth")
+    private Date dateOfBirth;
 
     @Column(name = "status_flag")
     private int statusFlag;
@@ -48,6 +50,9 @@ public class UsersEntity {
 
     @Column(name = "designation")
     private String designation;
+
+    @Column(name = "alt_mbl_num")
+    private String alternativeMobileNumber;
 
     public Integer getId() {
         return id;
@@ -81,12 +86,12 @@ public class UsersEntity {
         this.mobileNumber = mobileNumber;
     }
 
-    public int getAge() {
-        return age;
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public int getStatusFlag() {
@@ -120,5 +125,79 @@ public class UsersEntity {
     public void setDesignation(String designation) {
         this.designation = designation;
     }
+
+    public String getAlternativeMobileNumber() {
+        return alternativeMobileNumber;
+    }
+
+    public void setAlternativeMobileNumber(String alternativeMobileNumber) {
+        this.alternativeMobileNumber = alternativeMobileNumber;
+    }
+
+    public Date getJoiningDate() {
+        return joiningDate;
+    }
+
+    public void setJoiningDate(Date joiningDate) {
+        this.joiningDate = joiningDate;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public String getPersonalEmailId() {
+        return personalEmailId;
+    }
+
+    public void setPersonalEmailId(String personalEmailId) {
+        this.personalEmailId = personalEmailId;
+    }
+
+    public String getCurrentAddress() {
+        return currentAddress;
+    }
+
+    public void setCurrentAddress(String currentAddress) {
+        this.currentAddress = currentAddress;
+    }
+
+    public String getContactAddress() {
+        return contactAddress;
+    }
+
+    public void setContactAddress(String contactAddress) {
+        this.contactAddress = contactAddress;
+    }
+
+    public String getReportingManager() {
+        return reportingManager;
+    }
+
+    public void setReportingManager(String reportingManager) {
+        this.reportingManager = reportingManager;
+    }
+
+    @Column(name = "joining_date")
+    private Date joiningDate;
+
+    @Column(name = "email_id")
+    private String emailId;
+
+    @Column(name = "personal_email_id")
+    private String personalEmailId;
+
+    @Column(name = "permanant_address")
+    private String currentAddress;
+
+    @Column(name = "contact_address")
+    private String contactAddress;
+
+    @Column(name = "reporting_manager")
+    private String reportingManager;
 
 }
