@@ -37,13 +37,19 @@ public class WorkStatusEntity {
     public String taskStatus;
 
     @Column(name = "assigned_by")
-    public int assignedBy;
+    public String assignedBy;
 
-    @Column(name = "assigned_timestamp")
-    public LocalDateTime assignedTimeStamp;
+    @Column(name = "assigned_date")
+    public LocalDateTime taskAssignedDate;
 
-    @Column(name = "completed_timestamp")
-    public Date completedTimeStamp;
+    @Column(name = "completed_date")
+    public LocalDateTime taskCompletedDate;
+
+    @Column(name = "remarks")
+    public String remarks;
+
+    @Column(name = "accepted_flag")
+    public String acceptedFlag;
 
     public int getUserId() {
         return userId;
@@ -77,30 +83,6 @@ public class WorkStatusEntity {
         this.taskStatus = taskStatus;
     }
 
-    public int getAssignedBy() {
-        return assignedBy;
-    }
-
-    public void setAssignedBy(int assignedBy) {
-        this.assignedBy = assignedBy;
-    }
-
-    public LocalDateTime getAssignedTimeStamp() {
-        return assignedTimeStamp;
-    }
-
-    public void setAssignedTimeStamp(LocalDateTime assignedTimeStamp) {
-        this.assignedTimeStamp = assignedTimeStamp;
-    }
-
-    public Date getCompletedTimeStamp() {
-        return completedTimeStamp;
-    }
-
-    public void setCompletedTimeStamp(Date completedTimeStamp) {
-        this.completedTimeStamp = completedTimeStamp;
-    }
-
     public int getId() {
         return id;
     }
@@ -109,9 +91,44 @@ public class WorkStatusEntity {
         this.id = id;
     }
 
-}
+    public String getRemarks() {
+        return remarks;
+    }
 
-// assigned
-// WIP
-// QA
-// Completed
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    public String getAcceptedFlag() {
+        return acceptedFlag;
+    }
+
+    public void setAcceptedFlag(String acceptedFlag) {
+        this.acceptedFlag = acceptedFlag;
+    }
+
+    public LocalDateTime getTaskAssignedDate() {
+        return taskAssignedDate;
+    }
+
+    public void setTaskAssignedDate(LocalDateTime taskAssignedDate) {
+        this.taskAssignedDate = taskAssignedDate;
+    }
+
+    public LocalDateTime getTaskCompletedDate() {
+        return taskCompletedDate;
+    }
+
+    public void setTaskCompletedDate(LocalDateTime taskCompletedDate) {
+        this.taskCompletedDate = taskCompletedDate;
+    }
+
+    public String getAssignedBy() {
+        return assignedBy;
+    }
+
+    public void setAssignedBy(String assignedBy) {
+        this.assignedBy = assignedBy;
+    }
+
+}
