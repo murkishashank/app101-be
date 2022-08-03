@@ -1,5 +1,6 @@
 package com.example.crud1.workStatus;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -36,7 +37,7 @@ public class WorkStatusEntity {
     public String taskStatus;
 
     @Column(name = "assigned_by")
-    public int assignedBy;
+    public String assignedBy;
 
     @Column(name = "assigned_date")
     public LocalDateTime taskAssignedDate;
@@ -53,7 +54,6 @@ public class WorkStatusEntity {
     public int getUserId() {
         return userId;
     }
-
 
     public void setUserId(int userId) {
         this.userId = userId;
@@ -83,14 +83,6 @@ public class WorkStatusEntity {
         this.taskStatus = taskStatus;
     }
 
-    public int getAssignedBy() {
-        return assignedBy;
-    }
-
-    public void setAssignedBy(int assignedBy) {
-        this.assignedBy = assignedBy;
-    }
-
     public int getId() {
         return id;
     }
@@ -113,6 +105,30 @@ public class WorkStatusEntity {
 
     public void setAcceptedFlag(String acceptedFlag) {
         this.acceptedFlag = acceptedFlag;
+    }
+
+    public LocalDateTime getTaskAssignedDate() {
+        return taskAssignedDate;
+    }
+
+    public void setTaskAssignedDate(LocalDateTime taskAssignedDate) {
+        this.taskAssignedDate = taskAssignedDate;
+    }
+
+    public LocalDateTime getTaskCompletedDate() {
+        return taskCompletedDate;
+    }
+
+    public void setTaskCompletedDate(LocalDateTime taskCompletedDate) {
+        this.taskCompletedDate = taskCompletedDate;
+    }
+
+    public String getAssignedBy() {
+        return assignedBy;
+    }
+
+    public void setAssignedBy(String assignedBy) {
+        this.assignedBy = assignedBy;
     }
 
 }
