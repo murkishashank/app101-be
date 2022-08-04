@@ -1,5 +1,7 @@
 package com.example.crud1.users;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,4 +42,19 @@ public class UsersServiceImpl implements UsersService {
     public void delete(Integer userId) {
         usersRepo.deleteById(userId);
     }
+    
+    @Override
+    public HashMap<Integer, String> getAllUsersIds() {
+        List<UsersEntity> allRecords = usersRepo.findAll();
+        HashMap<Integer, String> map = new HashMap<>();
+        List newUserList = new ArrayList<>();
+        allRecords.forEach(gravityScaleDetail -> {
+            newUserList.add( gravityScaleDetail.getId());
+            map.put(gravityScaleDetail.getId(), gravityScaleDetail.getUserName());
+        });
+        System.out.println("----------------------------------------------------------------" + map + "----------------------------------------------");
+        return map;
+        // return newUserList;
+    }
+
 }

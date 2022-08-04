@@ -1,5 +1,6 @@
 package com.example.crud1.users;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,5 +56,14 @@ public class UsersController {
     @DeleteMapping("/delEmployee/{userId}")
     public void deleteUsers(@PathVariable("userId") int userId) {
         usersService.delete(userId);
+    }
+
+    
+    @CrossOrigin
+    @GetMapping("/allUsersIds")
+    public HashMap<Integer, String> getAllUserIds() {
+        HashMap<Integer, String> userIds = usersService.getAllUsersIds();
+        return userIds;
+        
     }
 }
