@@ -119,38 +119,28 @@ public class WorkStatusEntity {
         this.assignedBy = assignedBy;
     }
 
-
-
-
     public Date getTaskAssignedDate() {
         return taskAssignedDate;
     }
-
 
     public void setTaskAssignedDate(Date taskAssignedDate) {
         this.taskAssignedDate = taskAssignedDate;
     }
 
-
     public Date getTaskCompletedDate() {
         return taskCompletedDate;
     }
-
 
     public void setTaskCompletedDate(Date taskCompletedDate) {
         this.taskCompletedDate = taskCompletedDate;
     }
 
-
     public String getUserName() {
         return userName;
     }
 
-
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
-    
 
 }
