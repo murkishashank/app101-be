@@ -18,4 +18,5 @@ public interface UsersService {
 
     HashMap<Integer, String> getAllUsersIds();
 
+    Boolean validateLogin(UsersEntity loginDetails);
 }
