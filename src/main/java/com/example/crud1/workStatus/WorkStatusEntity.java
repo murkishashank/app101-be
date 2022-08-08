@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "work_status")
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class WorkStatusEntity {
 
     @Id
@@ -40,7 +41,7 @@ public class WorkStatusEntity {
     public String assignedBy;
 
     @Column(name = "assigned_date")
-    public LocalDateTime taskAssignedDate;
+    public Date taskAssignedDate;
 
     @Column(name = "completed_date")
     public Date taskCompletedDate;
@@ -50,6 +51,9 @@ public class WorkStatusEntity {
 
     @Column(name = "accepted_flag")
     public String acceptedFlag;
+
+    @Column(name = "user_name")
+    public String userName;
 
     public int getUserId() {
         return userId;
@@ -107,14 +111,6 @@ public class WorkStatusEntity {
         this.acceptedFlag = acceptedFlag;
     }
 
-    public LocalDateTime getTaskAssignedDate() {
-        return taskAssignedDate;
-    }
-
-    public void setTaskAssignedDate(LocalDateTime taskAssignedDate) {
-        this.taskAssignedDate = taskAssignedDate;
-    }
-
     public String getAssignedBy() {
         return assignedBy;
     }
@@ -123,12 +119,28 @@ public class WorkStatusEntity {
         this.assignedBy = assignedBy;
     }
 
+    public Date getTaskAssignedDate() {
+        return taskAssignedDate;
+    }
+
+    public void setTaskAssignedDate(Date taskAssignedDate) {
+        this.taskAssignedDate = taskAssignedDate;
+    }
+
     public Date getTaskCompletedDate() {
         return taskCompletedDate;
     }
 
     public void setTaskCompletedDate(Date taskCompletedDate) {
         this.taskCompletedDate = taskCompletedDate;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
 }
