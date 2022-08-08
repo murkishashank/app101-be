@@ -43,7 +43,7 @@ public class WorkStatusEntity {
     public LocalDateTime taskAssignedDate;
 
     @Column(name = "completed_date")
-    public LocalDateTime taskCompletedDate;
+    public Date taskCompletedDate;
 
     @Column(name = "remarks")
     public String remarks;
@@ -115,20 +115,20 @@ public class WorkStatusEntity {
         this.taskAssignedDate = taskAssignedDate;
     }
 
-    public LocalDateTime getTaskCompletedDate() {
-        return taskCompletedDate;
-    }
-
-    public void setTaskCompletedDate(LocalDateTime taskCompletedDate) {
-        this.taskCompletedDate = taskCompletedDate;
-    }
-
     public String getAssignedBy() {
         return assignedBy;
     }
 
     public void setAssignedBy(String assignedBy) {
         this.assignedBy = assignedBy;
+    }
+
+    public Date getTaskCompletedDate() {
+        return taskCompletedDate;
+    }
+
+    public void setTaskCompletedDate(Date taskCompletedDate) {
+        this.taskCompletedDate = taskCompletedDate;
     }
 
 }
