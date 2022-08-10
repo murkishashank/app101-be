@@ -27,11 +27,12 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public UsersEntity saveUsersDetails(UsersEntity userEntity) {
+        System.out.println("----------------------------------------0");
         UsersEntity saveUser = usersRepo.save(userEntity);
-        userEntity.getFinancialDetails().forEach(record -> {
-            record.setUserId(saveUser.getId());
-            financialDetailsRepo.save(record);
-        });
+        System.out.println("----------------------------------------1" + userEntity.getFinancialDetails().getUserId());
+        userEntity.getFinancialDetails().setUserId(saveUser.getId());
+        System.out.println("1" + userEntity.getFinancialDetails().getUserId());
+        financialDetailsRepo.save(userEntity.getFinancialDetails());
         return saveUser;
     }
 
@@ -49,17 +50,18 @@ public class UsersServiceImpl implements UsersService {
     public void delete(Integer userId) {
         usersRepo.deleteById(userId);
     }
-    
+
     @Override
     public HashMap<Integer, String> getAllUsersIds() {
         List<UsersEntity> allRecords = usersRepo.findAll();
         HashMap<Integer, String> map = new HashMap<>();
         List newUserList = new ArrayList<>();
         allRecords.forEach(gravityScaleDetail -> {
-            newUserList.add( gravityScaleDetail.getId());
+            newUserList.add(gravityScaleDetail.getId());
             map.put(gravityScaleDetail.getId(), gravityScaleDetail.getUserName());
         });
-        System.out.println("----------------------------------------------------------------" + map + "----------------------------------------------");
+        System.out.println("----------------------------------------------------------------" + map
+                + "----------------------------------------------");
         return map;
         // return newUserList;
     }
@@ -67,12 +69,16 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public Boolean validateLogin(UsersEntity loginDetails) {
         Optional<UsersEntity> user = usersRepo.findByUserName(loginDetails.getUserName());
-        if(user.isPresent()) {
-            if(loginDetails.getUserName().equals(user.get().getUserName())) {
-                if(loginDetails.getPassword().equals(user.get().getPassword())) return true;
-                else return false;
-            } else return false;
-        } else return false;
+        if (user.isPresent()) {
+            if (loginDetails.getUserName().equals(user.get().getUserName())) {
+                if (loginDetails.getPassword().equals(user.get().getPassword()))
+                    return true;
+                else
+                    return false;
+            } else
+                return false;
+        } else
+            return false;
     }
 
 }

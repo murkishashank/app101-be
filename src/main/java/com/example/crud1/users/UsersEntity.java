@@ -9,8 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.example.utilities.controllers.UdfConverter;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -81,8 +87,10 @@ public class UsersEntity {
     @Convert(converter = UdfConverter.class)
     private JsonNode editRequestedFields;
 
-    @OneToMany(mappedBy = "userId")
-    private List<FinancialDetailsEntity> financialDetails;
+    @OneToOne
+    @Cascade(CascadeType.PERSIST)
+    @JoinColumn(name = "id", insertable=false, updatable=false)
+    private FinancialDetailsEntity financialDetails;
 
     public Integer getId() {
         return id;
@@ -212,11 +220,11 @@ public class UsersEntity {
         this.reportingManager = reportingManager;
     }
 
-    public List<FinancialDetailsEntity> getFinancialDetails() {
+    public FinancialDetailsEntity getFinancialDetails() {
         return financialDetails;
     }
 
-    public void setFinancialDetails(List<FinancialDetailsEntity> financialDetails) {
+    public void setFinancialDetails(FinancialDetailsEntity financialDetails) {
         this.financialDetails = financialDetails;
     }
 
