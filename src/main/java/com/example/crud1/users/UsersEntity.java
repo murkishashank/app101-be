@@ -75,9 +75,9 @@ public class UsersEntity {
     @Column(name = "reporting_manager")
     private String reportingManager;
 
-    @Column(name = "udfs", columnDefinition = "json")
+    @Column(name = "erf", columnDefinition = "json")
     @Convert(converter = UdfConverter.class)
-    private JsonNode udfs;
+    private JsonNode editRequestedFields;
 
     public Integer getId() {
         return id;
@@ -207,11 +207,12 @@ public class UsersEntity {
         this.permanentAddress = permanentAddress;
     }
 
-    public JsonNode getUdfs() {
-        return udfs;
+    public JsonNode getEditRequestedFields() {
+        return editRequestedFields;
     }
 
-    public void setUdfs(JsonNode udfs) {
-        this.udfs = udfs;
+    public void setEditRequestedFields(JsonNode editRequestedFields) {
+        this.editRequestedFields = editRequestedFields;
     }
+
 }
