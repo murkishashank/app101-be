@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.example.utilities.controllers.UdfConverter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -73,6 +76,10 @@ public class UsersEntity {
 
     @Column(name = "reporting_manager")
     private String reportingManager;
+
+    @Column(name = "erf", columnDefinition = "json")
+    @Convert(converter = UdfConverter.class)
+    private JsonNode editRequestedFields;
 
     @OneToMany(mappedBy = "userId")
     private List<FinancialDetailsEntity> financialDetails;
@@ -211,6 +218,14 @@ public class UsersEntity {
 
     public void setFinancialDetails(List<FinancialDetailsEntity> financialDetails) {
         this.financialDetails = financialDetails;
+    }
+
+    public JsonNode getEditRequestedFields() {
+        return editRequestedFields;
+    }
+
+    public void setEditRequestedFields(JsonNode editRequestedFields) {
+        this.editRequestedFields = editRequestedFields;
     }
 
 }
