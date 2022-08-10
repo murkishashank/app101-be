@@ -28,10 +28,10 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public UsersEntity saveUsersDetails(UsersEntity userEntity) {
         UsersEntity saveUser = usersRepo.save(userEntity);
-        // userEntity.getFinincialDetails().forEach(record -> {
-        //     record.setUserId(saveUser.getId());
-        //     financialDetailsRepo.save(record);
-        // });
+        userEntity.getFinancialDetails().forEach(record -> {
+            record.setUserId(saveUser.getId());
+            financialDetailsRepo.save(record);
+        });
         return saveUser;
     }
 
