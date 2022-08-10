@@ -57,4 +57,15 @@ public class UsersServiceImpl implements UsersService {
         // return newUserList;
     }
 
+    @Override
+    public Boolean validateLogin(UsersEntity loginDetails) {
+        Optional<UsersEntity> user = usersRepo.findByUserName(loginDetails.getUserName());
+        if(user.isPresent()) {
+            if(loginDetails.getUserName().equals(user.get().getUserName())) {
+                if(loginDetails.getPassword().equals(user.get().getPassword())) return true;
+                else return false;
+            } else return false;
+        } else return false;
+    }
+
 }

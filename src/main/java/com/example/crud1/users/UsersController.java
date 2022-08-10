@@ -66,4 +66,9 @@ public class UsersController {
         return userIds;
         
     }
+
+    @PostMapping("/login")
+    public Boolean validateLogin( @RequestBody UsersEntity loginDetails ) {
+        return usersService.validateLogin(loginDetails);
+    }
 }
