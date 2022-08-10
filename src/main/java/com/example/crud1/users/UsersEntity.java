@@ -3,14 +3,17 @@ package com.example.crud1.users;
 import java.sql.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.example.utilities.controllers.UdfConverter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -71,6 +74,10 @@ public class UsersEntity {
 
     @Column(name = "reporting_manager")
     private String reportingManager;
+
+    @Column(name = "udfs", columnDefinition = "json")
+    @Convert(converter = UdfConverter.class)
+    private JsonNode udfs;
 
     public Integer getId() {
         return id;
@@ -200,4 +207,11 @@ public class UsersEntity {
         this.permanentAddress = permanentAddress;
     }
 
+    public JsonNode getUdfs() {
+        return udfs;
+    }
+
+    public void setUdfs(JsonNode udfs) {
+        this.udfs = udfs;
+    }
 }
