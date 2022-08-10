@@ -12,10 +12,12 @@ import org.springframework.stereotype.Service;
 public class UsersServiceImpl implements UsersService {
     @Autowired
     private final UsersRepo usersRepo;
+    private final FinancialDetailsRepo financialDetailsRepo;
 
-    public UsersServiceImpl(UsersRepo usersRepo) {
+    public UsersServiceImpl(UsersRepo usersRepo, FinancialDetailsRepo financialDetailsRepo) {
         super();
         this.usersRepo = usersRepo;
+        this.financialDetailsRepo = financialDetailsRepo;
     }
 
     @Override
@@ -25,7 +27,12 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public UsersEntity saveUsersDetails(UsersEntity userEntity) {
-        return usersRepo.save(userEntity);
+        UsersEntity saveUser = usersRepo.save(userEntity);
+        userEntity.getFinancialDetails().forEach(record -> {
+            record.setUserId(saveUser.getId());
+            financialDetailsRepo.save(record);
+        });
+        return saveUser;
     }
 
     @Override
