@@ -1,12 +1,14 @@
 package com.example.crud1.users;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -71,6 +73,9 @@ public class UsersEntity {
 
     @Column(name = "reporting_manager")
     private String reportingManager;
+
+    @OneToMany(mappedBy = "userId")
+    private List<FinancialDetailsEntity> financialDetails;
 
     public Integer getId() {
         return id;
@@ -176,6 +181,14 @@ public class UsersEntity {
         this.personalEmailId = personalEmailId;
     }
 
+    public String getPermanentAddress() {
+        return permanentAddress;
+    }
+
+    public void setPermanentAddress(String permanentAddress) {
+        this.permanentAddress = permanentAddress;
+    }
+
     public String getContactAddress() {
         return contactAddress;
     }
@@ -192,12 +205,12 @@ public class UsersEntity {
         this.reportingManager = reportingManager;
     }
 
-    public String getPermanentAddress() {
-        return permanentAddress;
+    public List<FinancialDetailsEntity> getFinancialDetails() {
+        return financialDetails;
     }
 
-    public void setPermanentAddress(String permanentAddress) {
-        this.permanentAddress = permanentAddress;
+    public void setFinancialDetails(List<FinancialDetailsEntity> financialDetails) {
+        this.financialDetails = financialDetails;
     }
 
 }
