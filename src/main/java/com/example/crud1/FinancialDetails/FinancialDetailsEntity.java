@@ -1,4 +1,4 @@
-package com.example.crud1.users;
+package com.example.crud1.FinancialDetails;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FinancialDetailsEntity {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Integer id;
-
+    
+    @Id
     @Column(name = "user_id", nullable = false)
     private Integer userId;
     
@@ -45,14 +45,7 @@ public class FinancialDetailsEntity {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
+    
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -92,5 +85,14 @@ public class FinancialDetailsEntity {
     public void setPanNumber(String panNumber) {
         this.panNumber = panNumber;
     }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
 
 }

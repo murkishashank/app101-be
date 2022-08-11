@@ -8,16 +8,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class UsersServiceImpl implements UsersService {
     @Autowired
     private final UsersRepo usersRepo;
-    private final FinancialDetailsRepo financialDetailsRepo;
 
-    public UsersServiceImpl(UsersRepo usersRepo, FinancialDetailsRepo financialDetailsRepo) {
+    public UsersServiceImpl(UsersRepo usersRepo) {
         super();
         this.usersRepo = usersRepo;
-        this.financialDetailsRepo = financialDetailsRepo;
     }
 
     @Override
@@ -27,13 +26,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public UsersEntity saveUsersDetails(UsersEntity userEntity) {
-        System.out.println("----------------------------------------0");
-        UsersEntity saveUser = usersRepo.save(userEntity);
-        System.out.println("----------------------------------------1" + userEntity.getFinancialDetails().getUserId());
-        userEntity.getFinancialDetails().setUserId(saveUser.getId());
-        System.out.println("1" + userEntity.getFinancialDetails().getUserId());
-        financialDetailsRepo.save(userEntity.getFinancialDetails());
-        return saveUser;
+        return usersRepo.save(userEntity);
     }
 
     @Override
