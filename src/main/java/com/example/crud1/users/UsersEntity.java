@@ -1,7 +1,6 @@
 package com.example.crud1.users;
 
 import java.sql.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
@@ -9,14 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 import com.example.utilities.controllers.UdfConverter;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -86,11 +78,6 @@ public class UsersEntity {
     @Column(name = "erf", columnDefinition = "json")
     @Convert(converter = UdfConverter.class)
     private JsonNode editRequestedFields;
-
-    @OneToOne
-    @Cascade(CascadeType.PERSIST)
-    @JoinColumn(name = "id", insertable=false, updatable=false)
-    private FinancialDetailsEntity financialDetails;
 
     public Integer getId() {
         return id;
@@ -218,14 +205,6 @@ public class UsersEntity {
 
     public void setReportingManager(String reportingManager) {
         this.reportingManager = reportingManager;
-    }
-
-    public FinancialDetailsEntity getFinancialDetails() {
-        return financialDetails;
-    }
-
-    public void setFinancialDetails(FinancialDetailsEntity financialDetails) {
-        this.financialDetails = financialDetails;
     }
 
     public JsonNode getEditRequestedFields() {
