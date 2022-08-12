@@ -21,5 +21,12 @@ public class HolidayServiceImpl implements HolidayService {
     public List<HolidaysEntity> getAllHolidays() {
         return holidayRepo.findAll();
     }
+
+
+    @Override
+    public Iterable<HolidaysEntity> saveAllTasks(Iterable<HolidaysEntity> newRecord) {
+        return holidayRepo.saveAll((Iterable<HolidaysEntity>) newRecord);
+
+    }
     
 }
