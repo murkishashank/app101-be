@@ -12,4 +12,6 @@ public interface HolidayService {
 
     List<HolidaysEntity> getAllHolidays();
 
+    Iterable<HolidaysEntity> saveAllTasks(Iterable<HolidaysEntity> newRecord);
+
 }
