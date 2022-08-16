@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FinancialDetailsServiceImpl implements FinancialDetailsService{
-
+public class FinancialDetailsServiceImpl implements FinancialDetailsService {
 
     @Autowired
     private FinancialDetailsRepo financialDetailsRepo;
@@ -21,5 +20,9 @@ public class FinancialDetailsServiceImpl implements FinancialDetailsService{
         return financialDetailsRepo.findAll();
     }
 
-    
+    @Override
+    public List<FinancialDetailsEntity> findByUserId(Integer id) {
+        return financialDetailsRepo.findByUserId(id);
+    }
+
 }

@@ -17,11 +17,11 @@ public class FinancialDetailsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Integer id;
-    
+
     @Id
     @Column(name = "user_id", nullable = false)
     private Integer userId;
-    
+
     @Column(name = "acc_no")
     private String accountNumber;
 
@@ -33,9 +33,36 @@ public class FinancialDetailsEntity {
 
     @Column(name = "bank_branch")
     private String bankBranchName;
-    
+
     @Column(name = "pan_no")
     private String panNumber;
+
+    @Column(name = "basic")
+    private Integer basic;
+
+    @Column(name = "house_rent_allowance")
+    private Integer houseRentAllowance;
+
+    @Column(name = "conveyance")
+    private Integer conveyance;
+
+    @Column(name = "medical_allowance")
+    private Integer medicalAllowance;
+
+    @Column(name = "prof_pursuits_allow")
+    private Integer profPursuitsAllow;
+
+    @Column(name = "arears")
+    private Integer arears;
+
+    @Column(name = "other_allowances")
+    private Integer otherAllowances;
+
+    @Column(name = "profession_tax")
+    private Integer professionTax;
+
+    @Column(name = "provident_fund")
+    private Integer providentFund;
 
     public Integer getId() {
         return id;
@@ -45,7 +72,6 @@ public class FinancialDetailsEntity {
         this.id = id;
     }
 
-    
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -94,5 +120,76 @@ public class FinancialDetailsEntity {
         this.userId = userId;
     }
 
+    public Integer getBasic() {
+        return basic;
+    }
+
+    public void setBasic(Integer basic) {
+        this.basic = basic;
+    }
+
+    public Integer getHouseRentAllowance() {
+        return houseRentAllowance;
+    }
+
+    public void setHouseRentAllowance(Integer houseRentAllowance) {
+        this.houseRentAllowance = houseRentAllowance;
+    }
+
+    public Integer getConveyance() {
+        return conveyance;
+    }
+
+    public void setConveyance(Integer conveyance) {
+        this.conveyance = conveyance;
+    }
+
+    public Integer getMedicalAllowance() {
+        return medicalAllowance;
+    }
+
+    public void setMedicalAllowance(Integer medicalAllowance) {
+        this.medicalAllowance = medicalAllowance;
+    }
+
+    public Integer getProfPursuitsAllow() {
+        return profPursuitsAllow;
+    }
+
+    public void setProfPursuitsAllow(Integer profPursuitsAllow) {
+        this.profPursuitsAllow = profPursuitsAllow;
+    }
+
+    public Integer getArears() {
+        return arears;
+    }
+
+    public void setArears(Integer arears) {
+        this.arears = arears;
+    }
+
+    public Integer getOtherAllowances() {
+        return otherAllowances;
+    }
+
+    public void setOtherAllowances(Integer otherAllowances) {
+        this.otherAllowances = otherAllowances;
+    }
+
+    public Integer getProfessionTax() {
+        return professionTax;
+    }
+
+    public void setProfessionTax(Integer professionTax) {
+        this.professionTax = professionTax;
+    }
+
+    public Integer getProvidentFund() {
+        return providentFund;
+    }
+
+    public void setProvidentFund(Integer providentFund) {
+        this.providentFund = providentFund;
+    }
 
 }
