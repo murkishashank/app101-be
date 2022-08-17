@@ -52,8 +52,8 @@ public class WorkStatusEntity {
     @Column(name = "accepted_flag")
     public String acceptedFlag;
 
-    @Column(name = "user_name")
-    public String userName;
+    @Column(name = "assigned_user_name")
+    public String assignedUserName;
 
     public int getUserId() {
         return userId;
@@ -135,12 +135,12 @@ public class WorkStatusEntity {
         this.taskCompletedDate = taskCompletedDate;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getAssignedUserName() {
+        return assignedUserName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setAssignedUserName(String assignedUserName) {
+        this.assignedUserName = assignedUserName;
     }
 
 }
