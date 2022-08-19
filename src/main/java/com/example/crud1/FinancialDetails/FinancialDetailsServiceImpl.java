@@ -21,8 +21,20 @@ public class FinancialDetailsServiceImpl implements FinancialDetailsService {
     }
 
     @Override
-    public List<FinancialDetailsEntity> findByUserId(Integer id) {
-        return financialDetailsRepo.findByUserId(id);
+    public List<FinancialDetailsEntity> findByUserId(Integer userId) {
+        return financialDetailsRepo.findByUserId(userId);
+    }
+
+    @Override
+    public List<FinancialDetailsEntity> findBySalCreditedMonth(String salCreditedMonth) {
+        return financialDetailsRepo.findBySalCreditedMonth(salCreditedMonth);
+    }
+
+    @Override
+    public Iterable<FinancialDetailsEntity> saveAllRecords(Iterable<FinancialDetailsEntity> allEmpFinancialRecords) {
+        // TODO Auto-generated method stub
+        return financialDetailsRepo.saveAll((Iterable<FinancialDetailsEntity>) allEmpFinancialRecords);
+
     }
 
 }

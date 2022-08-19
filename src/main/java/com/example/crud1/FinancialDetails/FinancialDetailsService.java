@@ -6,6 +6,10 @@ public interface FinancialDetailsService {
 
     List<FinancialDetailsEntity> getAllFinancialDetails();
 
-    List<FinancialDetailsEntity> findByUserId(Integer id);
+    List<FinancialDetailsEntity> findByUserId(Integer userId);
+
+    List<FinancialDetailsEntity> findBySalCreditedMonth(String salCreditedMonth);
+
+    Iterable<FinancialDetailsEntity> saveAllRecords(Iterable<FinancialDetailsEntity> allEmpFinancialRecords);
 
 }
