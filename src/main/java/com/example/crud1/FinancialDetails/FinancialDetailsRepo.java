@@ -10,4 +10,6 @@ public interface FinancialDetailsRepo extends JpaRepository<FinancialDetailsEnti
 
     List<FinancialDetailsEntity> findByUserId(Integer userId);
 
+    List<FinancialDetailsEntity> findBySalCreditedMonth(String salCreditedMonth);
+
 }
