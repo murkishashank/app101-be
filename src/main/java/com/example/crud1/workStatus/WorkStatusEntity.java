@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "work_status")
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class WorkStatusEntity {
 
     @Id

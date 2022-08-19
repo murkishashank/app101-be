@@ -14,11 +14,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FinancialDetailsEntity {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
-    @Id
     @Column(name = "user_id", nullable = false)
     private Integer userId;
 
@@ -63,6 +64,9 @@ public class FinancialDetailsEntity {
 
     @Column(name = "provident_fund")
     private Integer providentFund;
+
+    @Column(name = "salary_credited_month")
+    private String salCreditedMonth;
 
     public Integer getId() {
         return id;
@@ -190,6 +194,14 @@ public class FinancialDetailsEntity {
 
     public void setProvidentFund(Integer providentFund) {
         this.providentFund = providentFund;
+    }
+
+    public String getSalCreditedMonth() {
+        return salCreditedMonth;
+    }
+
+    public void setSalCreditedMonth(String salCreditedMonth) {
+        this.salCreditedMonth = salCreditedMonth;
     }
 
 }
