@@ -8,7 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.example.crud1.users.UsersEntity;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -17,13 +22,12 @@ import lombok.NoArgsConstructor;
 @Table(name = "work_status")
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class WorkStatusEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "status_id")
-    public int id;
+    public int statusId;
 
     @Column(name = "user_id")
     public int userId;
@@ -52,8 +56,18 @@ public class WorkStatusEntity {
     @Column(name = "accepted_flag")
     public String acceptedFlag;
 
-    @Column(name = "assigned_user_name")
-    public String assignedUserName;
+    @JsonIncludeProperties({ "userName", "id" })
+    @OneToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private UsersEntity user;
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
+    }
 
     public int getUserId() {
         return userId;
@@ -87,30 +101,6 @@ public class WorkStatusEntity {
         this.taskStatus = taskStatus;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
-    }
-
-    public String getAcceptedFlag() {
-        return acceptedFlag;
-    }
-
-    public void setAcceptedFlag(String acceptedFlag) {
-        this.acceptedFlag = acceptedFlag;
-    }
-
     public String getAssignedBy() {
         return assignedBy;
     }
@@ -135,12 +125,27 @@ public class WorkStatusEntity {
         this.taskCompletedDate = taskCompletedDate;
     }
 
-    public String getAssignedUserName() {
-        return assignedUserName;
+    public String getRemarks() {
+        return remarks;
     }
 
-    public void setAssignedUserName(String assignedUserName) {
-        this.assignedUserName = assignedUserName;
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
+    public String getAcceptedFlag() {
+        return acceptedFlag;
+    }
+
+    public void setAcceptedFlag(String acceptedFlag) {
+        this.acceptedFlag = acceptedFlag;
+    }
+
+    public UsersEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UsersEntity user) {
+        this.user = user;
+    }
 }
