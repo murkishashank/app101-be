@@ -1,18 +1,19 @@
 package com.example.crud1.users;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 @Service
 public class UsersServiceImpl implements UsersService {
     @Autowired
     private final UsersRepo usersRepo;
+
+    JSONObject obj = new JSONObject();
 
     public UsersServiceImpl(UsersRepo usersRepo) {
         super();
@@ -44,19 +45,18 @@ public class UsersServiceImpl implements UsersService {
         usersRepo.deleteById(userId);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public HashMap<Integer, String> getAllUsersIds() {
+    public List<Object> getAllUsersIds() {
         List<UsersEntity> allRecords = usersRepo.findAll();
-        HashMap<Integer, String> map = new HashMap<>();
-        List newUserList = new ArrayList<>();
+        JSONArray finalArray = new JSONArray();
         allRecords.forEach(gravityScaleDetail -> {
-            newUserList.add(gravityScaleDetail.getId());
-            map.put(gravityScaleDetail.getId(), gravityScaleDetail.getUserName());
+            JSONObject json = new JSONObject();
+            json.put("id", gravityScaleDetail.getId());
+            json.put("userName", gravityScaleDetail.getUserName());
+            finalArray.add(json);
         });
-        System.out.println("----------------------------------------------------------------" + map
-                + "----------------------------------------------");
-        return map;
-        // return newUserList;
+        return finalArray;
     }
 
     @Override

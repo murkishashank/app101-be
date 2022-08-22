@@ -30,8 +30,8 @@ public class WorkStatusController {
     }
 
     @CrossOrigin
-    @GetMapping("/task/{taskId}")
-    public List<WorkStatusEntity> findByUserId(@PathVariable("taskId") Integer id) {
+    @GetMapping("/task/{userId}")
+    public List<WorkStatusEntity> findByUserId(@PathVariable("userId") Integer id) {
         return workStatusService.findByUserId(id);
     }
 
