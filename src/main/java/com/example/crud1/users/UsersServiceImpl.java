@@ -48,12 +48,12 @@ public class UsersServiceImpl implements UsersService {
     @SuppressWarnings("unchecked")
     @Override
     public List<Object> getAllUsersIds() {
-        List<UsersEntity> allRecords = usersRepo.findAll();
+        List<UsersEntity> allUsers = usersRepo.findAll();
         JSONArray finalArray = new JSONArray();
-        allRecords.forEach(gravityScaleDetail -> {
+        allUsers.forEach(user -> {
             JSONObject json = new JSONObject();
-            json.put("id", gravityScaleDetail.getId());
-            json.put("userName", gravityScaleDetail.getUserName());
+            json.put("id", user.getId());
+            json.put("userName", user.getUserName());
             finalArray.add(json);
         });
         return finalArray;

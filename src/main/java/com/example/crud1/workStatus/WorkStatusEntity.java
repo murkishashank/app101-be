@@ -53,13 +53,15 @@ public class WorkStatusEntity {
     @Column(name = "remarks")
     public String remarks;
 
-    @Column(name = "accepted_flag")
-    public String acceptedFlag;
-
     @JsonIncludeProperties({ "userName", "id" })
     @OneToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private UsersEntity user;
+
+    @JsonIncludeProperties({ "userName", "id" })
+    @OneToOne
+    @JoinColumn(name = "assigned_by", insertable = false, updatable = false)
+    private UsersEntity assignedByUser;
 
     public int getStatusId() {
         return statusId;
@@ -133,19 +135,19 @@ public class WorkStatusEntity {
         this.remarks = remarks;
     }
 
-    public String getAcceptedFlag() {
-        return acceptedFlag;
-    }
-
-    public void setAcceptedFlag(String acceptedFlag) {
-        this.acceptedFlag = acceptedFlag;
-    }
-
     public UsersEntity getUser() {
         return user;
     }
 
     public void setUser(UsersEntity user) {
         this.user = user;
+    }
+
+    public UsersEntity getAssignedByUser() {
+        return assignedByUser;
+    }
+
+    public void setAssignedByUser(UsersEntity assignedByUser) {
+        this.assignedByUser = assignedByUser;
     }
 }

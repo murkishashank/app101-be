@@ -32,7 +32,7 @@ public class WorkStatusServiceImpl implements WorkStatusService {
     }
 
     @Override
-    public Iterable<WorkStatusEntity> saveAllTasks(Iterable<WorkStatusEntity> workStatusRecord) {
+    public List<WorkStatusEntity> saveAllTasks(Iterable<WorkStatusEntity> workStatusRecord) {
         return workStatusRepo.saveAll((Iterable<WorkStatusEntity>) workStatusRecord);
     }
 }
