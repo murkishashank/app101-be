@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 import com.example.utilities.controllers.UdfConverter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -78,6 +79,9 @@ public class UsersEntity {
     @Column(name = "erf", columnDefinition = "json")
     @Convert(converter = UdfConverter.class)
     private JsonNode editRequestedFields;
+
+    @Column(name = "address_proof")
+    private String addressProof;
 
     public Integer getId() {
         return id;
@@ -213,6 +217,14 @@ public class UsersEntity {
 
     public void setEditRequestedFields(JsonNode editRequestedFields) {
         this.editRequestedFields = editRequestedFields;
+    }
+
+    public String getAddressProof() {
+        return addressProof;
+    }
+
+    public void setAddressProof(String addressProof) {
+        this.addressProof = addressProof;
     }
 
 }
