@@ -49,10 +49,26 @@ public class UsersLeaveEntity {
     @Column(name = "remarks")
     private String remarks;
 
-    @JsonIncludeProperties({ "userName" })
+    @JsonIncludeProperties({ "userName", "id" })
     @OneToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private UsersEntity userName;
+    private UsersEntity user;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Date getFromDate() {
         return fromDate;
@@ -78,10 +94,6 @@ public class UsersLeaveEntity {
         this.reason = reason;
     }
 
-    public String getApprovedFlag() {
-        return approvedFlag;
-    }
-
     public Date getAppliedDate() {
         return appliedDate;
     }
@@ -96,6 +108,10 @@ public class UsersLeaveEntity {
 
     public void setApprovedDate(Date approvedDate) {
         this.approvedDate = approvedDate;
+    }
+
+    public String getApprovedFlag() {
+        return approvedFlag;
     }
 
     public void setApprovedFlag(String approvedFlag) {
@@ -118,30 +134,12 @@ public class UsersLeaveEntity {
         this.remarks = remarks;
     }
 
-    public UsersEntity getUserName() {
-        return userName;
+    public UsersEntity getUser() {
+        return user;
     }
 
-    public void setUserName(UsersEntity userName) {
-        this.userName = userName;
+    public void setUser(UsersEntity user) {
+        this.user = user;
     }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-   
  
 }

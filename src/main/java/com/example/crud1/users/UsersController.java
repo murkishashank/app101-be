@@ -1,6 +1,5 @@
 package com.example.crud1.users;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,10 +60,9 @@ public class UsersController {
     
     @CrossOrigin
     @GetMapping("/allUsersIds")
-    public HashMap<Integer, String> getAllUserIds() {
-        HashMap<Integer, String> userIds = usersService.getAllUsersIds();
+    public List<Object> getAllUserIds() {
+        List<Object> userIds = usersService.getAllUsersIds();
         return userIds;
-        
     }
 
     @PostMapping("/login")

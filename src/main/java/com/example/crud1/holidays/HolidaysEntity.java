@@ -1,5 +1,7 @@
 package com.example.crud1.holidays;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,7 @@ public class HolidaysEntity {
     private String occasion;
 
     @Column(name = "Date")
-    private String date;
+    private Date date;
 
     @Column(name = "Day")
     private String day;
@@ -43,13 +45,6 @@ public class HolidaysEntity {
         this.occasion = occasion;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
 
     public String getDay() {
         return day;
@@ -65,6 +60,14 @@ public class HolidaysEntity {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     
