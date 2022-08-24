@@ -42,6 +42,12 @@ public class FinancialDetailsController {
     }
 
     @CrossOrigin
+    @PostMapping("/saveFinancialDetails")
+    public FinancialDetailsEntity saveFinancialDetails(@RequestBody FinancialDetailsEntity financialDetailsEntity) {
+        return financialDetailsService.saveFinancialDetails(financialDetailsEntity);
+    }
+
+    @CrossOrigin
     @PostMapping("/allEmpFinancialDetails")
     public Iterable<FinancialDetailsEntity> saveAllRecords(
             @RequestBody Iterable<FinancialDetailsEntity> allEmpFinancialRecords) {

@@ -12,4 +12,5 @@ public interface FinancialDetailsService {
 
     Iterable<FinancialDetailsEntity> saveAllRecords(Iterable<FinancialDetailsEntity> allEmpFinancialRecords);
 
+    FinancialDetailsEntity saveFinancialDetails(FinancialDetailsEntity financialDetailsEntity);
 }
