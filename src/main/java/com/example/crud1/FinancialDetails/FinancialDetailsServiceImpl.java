@@ -37,4 +37,10 @@ public class FinancialDetailsServiceImpl implements FinancialDetailsService {
 
     }
 
+    @Override
+    public FinancialDetailsEntity saveFinancialDetails(FinancialDetailsEntity financialDetailsEntity) {
+        // TODO Auto-generated method stub
+        return financialDetailsRepo.save(financialDetailsEntity);
+    }
+
 }
