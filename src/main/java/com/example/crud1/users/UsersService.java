@@ -18,4 +18,6 @@ public interface UsersService {
     List<Object> getAllUsersIds();
 
     Boolean validateLogin(UsersEntity loginDetails);
+
+    Integer getNewEmployeeCount();
 }

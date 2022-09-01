@@ -1,5 +1,6 @@
 package com.example.crud1.users;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,6 +58,20 @@ public class UsersServiceImpl implements UsersService {
             finalArray.add(json);
         });
         return finalArray;
+    }
+
+    @Override
+    public Integer getNewEmployeeCount() {
+
+        List<UsersEntity> allUsers = usersRepo.findAll();
+        List<UsersEntity> list = new ArrayList<>();
+        allUsers.forEach(user -> {
+            if (user.getDesignation() == null || user.getDesignation() == "") {
+                list.add(user);
+            }
+        });
+        int size = list.size();
+        return size;
     }
 
     @Override
