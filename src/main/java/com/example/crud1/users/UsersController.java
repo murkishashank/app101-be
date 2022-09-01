@@ -45,6 +45,12 @@ public class UsersController {
     }
 
     @CrossOrigin
+    @GetMapping("/users/getNewEmployeeCount")
+    public Integer getNewEmployeeCount() {
+        return usersService.getNewEmployeeCount();
+    }
+
+    @CrossOrigin
     @PostMapping("/users")
     public ResponseEntity<UsersEntity> saveUsersDetails(@RequestBody UsersEntity record) {
         UsersEntity saveUser = usersService.saveUsersDetails(record);
@@ -57,7 +63,6 @@ public class UsersController {
         usersService.delete(userId);
     }
 
-    
     @CrossOrigin
     @GetMapping("/allUsersIds")
     public List<Object> getAllUserIds() {
@@ -66,7 +71,7 @@ public class UsersController {
     }
 
     @PostMapping("/login")
-    public Boolean validateLogin( @RequestBody UsersEntity loginDetails ) {
+    public Boolean validateLogin(@RequestBody UsersEntity loginDetails) {
         return usersService.validateLogin(loginDetails);
     }
 }
